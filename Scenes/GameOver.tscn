@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://q0bl0p7nol5n"]
+
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_2u5im"]
+[ext_resource type="Script" path="res://Scripts/GameOver.cs" id="1_5xdbh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us76g"]
+bg_color = Color(0, 0, 0, 0.258824)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5xdbh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1205.0
+offset_bottom = 809.0
+color = Color(0.152941, 0.168627, 0.188235, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -94.0
+offset_right = 178.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_us76g")
+text = "Game Over ! 
+Enemies defeated :"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HappyBoo" parent="CanvasLayer" instance=ExtResource("1_2u5im")]
+position = Vector2(600, 563)

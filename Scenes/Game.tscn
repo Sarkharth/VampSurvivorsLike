@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmx0nxf5toh2k"]
+
+[ext_resource type="PackedScene" uid="uid://dg35h1tj4kb6d" path="res://Scenes/Player.tscn" id="1_0j0t2"]
+[ext_resource type="Script" path="res://Scripts/Game.cs" id="1_ofao8"]
+[ext_resource type="PackedScene" uid="uid://dpqv2h5f5udr7" path="res://Scenes/PineTree.tscn" id="2_cvy5v"]
+
+[sub_resource type="Curve2D" id="Curve2D_brlk3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -258, -263, 0, 0, 0, 0, -254, 1293, 0, 0, 0, 0, 2195, 1296, 0, 0, 0, 0, 2195, -263, 0, 0, 0, 0, -258, -263)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ofao8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -20
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1940.0
+offset_bottom = 1106.0
+color = Color(0.445648, 0.630251, 0.482467, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_0j0t2")]
+position = Vector2(956, 593)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-964, -554)
+curve = SubResource("Curve2D_brlk3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+position = Vector2(-258, -263)
+rotation = 1.56823
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="PineTree" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(2080, 587)
+
+[node name="PineTree2" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(466, -94)
+
+[node name="PineTree3" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(1765, 981)
+
+[node name="PineTree4" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(571, 607)
+
+[node name="PineTree5" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(1419, -75)
+
+[node name="PineTree6" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(-45, 124)
+
+[node name="PineTree7" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(-314, 923)
+
+[node name="PineTree23" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(423, 240)
+
+[node name="PineTree8" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(158, 1071)
+
+[node name="PineTree9" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(1856, 1467)
+
+[node name="PineTree10" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(937, 1050)
+
+[node name="PineTree11" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(1316, 1194)
+
+[node name="PineTree12" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(1151, 116)
+
+[node name="PineTree13" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(2240, -44)
+
+[node name="PineTree14" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(2464, 148)
+
+[node name="PineTree15" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(1663, -541)
+
+[node name="PineTree16" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(323, -632)
+
+[node name="PineTree17" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(-633, -210)
+
+[node name="PineTree18" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(-302, 249)
+
+[node name="PineTree19" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(-569, 1498)
+
+[node name="PineTree20" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(328, 1177)
+
+[node name="PineTree21" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(2159, 1652)
+
+[node name="PineTree22" parent="." instance=ExtResource("2_cvy5v")]
+position = Vector2(1070, 1588)
+
+[connection signal="OnHealthDepleted" from="Player" to="." method="OnHealthDepleted"]
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
